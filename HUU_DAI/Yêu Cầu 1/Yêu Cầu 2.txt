@@ -1,0 +1,18 @@
+Sử dụng ZigBee: 
+Tìm hiểu Zigbee là gì.
+Kết nối Zigbee với 1 VĐK như thế nào ? ( 1 con VĐK + Zigbee)
+VĐK Chính giao tiếp VĐK Phụ bằng Zigbee ( VĐK chính + Zigbee   <===>    Zigbee   +  VĐK Phụ)
+
+
+
+2.	Lựa chọn con vi điều khiển: 
+	Có cần chọn VĐK chống nhiễu.
+	Chúng ta đẩy dữ liệu lên sever thì chọn con nào mà nó có hỗ trợ sẵn. => Nguồn tài liệu có sẵn.
+	VĐK hỗ trợ camera tốt ?
+
+
+VĐK chính: raperi Pi: ( Phần mềm nào để mình biên dịch, phần mềm nào để mình mô phỏng, phần mềm nào mình vẽ mạch in)
+VĐK phụ ESP :  ( Phần mềm nào để mình biên dịch, phần mềm nào để mình mô phỏng, phần mềm nào mình vẽ mạch in)
+(Xem video tên YTube)
+
+
