@@ -1,0 +1,13 @@
+Tên đề tài : Phát triển hệ thống giám sát tối ưu vận hành nhà yến thông minh ứng dụng Machine Learning
+
+Tên: Nguyễn Hữu Đại
+MSV: 21CE008
+GVHD: TS. Nguyễn Vũ Anh Quang
+Nghành: Công nghệ kỹ thuật máy tính
+Đặng
+Tên đề tài : XÂY DỰNG HỆ THỐNG NHÀ TRỒNG NẤM THÔNG MINH ỨNG DỤNG CAMERA PHÁT HIỆN SINH VẬT GÂY HẠI
+Tên : Đặng Thanh Hoàng 
+MSV:21CE020
+GVHD: TS. Nguyễn Vũ Anh Quang
+Ngành : Công nghệ kỹ thuật máy tính 
+Khoa : Kỹ thuật máy tính và điện tử

@@ -1,0 +1,239 @@
+1. Nhiệt độ & độ ẩm đều ĐÚNG
+
+Điều kiện:
+
+TEMP_MIN ≤ T ≤ TEMP_MAX
+
+HUMIDITY_MIN ≤ H ≤ HUMIDITY_MAX
+
+Môi trường thực tế:
+
+Nhà yến đang ổn, thường là lúc trời mát, mưa nhẹ, hoặc hệ thống đang chạy ngon.
+
+Ảnh hưởng đến yến:
+
+Tốt nhất, yến hoạt động, làm tổ, sinh sản ổn định.
+
+Thiết bị nên làm gì:
+
+Quạt: OFF hoặc chạy rất nhẹ để lưu thông khí.
+
+Phun sương: OFF.
+
+Sưởi: OFF.
+
+Code kiểu: chỉ bật quạt nhẹ nếu muốn thông gió, còn lại tắt hết.
+
+2. Nhiệt độ CAO, độ ẩm ĐÚNG
+
+Điều kiện:
+
+T > TEMP_MAX
+
+HUMIDITY_MIN ≤ H ≤ HUMIDITY_MAX
+
+Môi trường:
+
+Trưa nắng, mái tôn hấp nhiệt → trong nhà nóng lên nhưng độ ẩm chưa bị tụt nhiều.
+
+Ảnh hưởng:
+
+Yến bị stress nhiệt, dễ bay ra ngoài, ít vào nhà, giảm làm tổ.
+
+Thiết bị:
+
+Quạt: ON (vừa → mạnh, tùy mức lệch).
+
+Phun sương: OFF (vì ẩm đã đủ, phun thêm dễ vượt ngưỡng).
+
+Sưởi: OFF.
+
+Mục tiêu: hạ nhiệt mà không tăng thêm ẩm.
+
+3. Nhiệt độ THẤP, độ ẩm ĐÚNG
+
+Điều kiện:
+
+T < TEMP_MIN
+
+HUMIDITY_MIN ≤ H ≤ HUMIDITY_MAX
+
+Môi trường:
+
+Đêm khuya, sáng sớm, mùa mưa lạnh.
+
+Ảnh hưởng:
+
+Yến bị lạnh, dễ bệnh, chậm phát triển, chim non dễ yếu.
+
+Thiết bị:
+
+Sưởi: ON (tăng dần cho tới khi về khoảng 27–28 °C).
+
+Quạt: OFF hoặc rất nhẹ (tránh gió lùa làm lạnh hơn).
+
+Phun sương: OFF (ẩm đang ổn).
+
+4. Nhiệt độ ĐÚNG, độ ẩm THẤP (khô)
+
+Điều kiện:
+
+TEMP_MIN ≤ T ≤ TEMP_MAX
+
+H < HUMIDITY_MIN
+
+Môi trường:
+
+Mùa khô, trời hanh, gió mạnh; trong nhà mát nhưng khô.
+
+Ảnh hưởng:
+
+Tổ dễ khô, yến ít bám lâu, giảm khả năng làm tổ, trứng dễ mất nước.
+
+Thiết bị:
+
+Phun sương: ON (chu kỳ ngắt quãng để tránh vượt quá HUMIDITY_MAX).
+
+Quạt: OFF hoặc rất nhẹ (vì thổi mạnh sẽ làm bay hơi nhanh hơn → càng khô).
+
+Sưởi: OFF.
+
+Mục tiêu: tăng ẩm mà không làm nóng thêm.
+
+5. Nhiệt độ ĐÚNG, độ ẩm CAO (quá ẩm)
+
+Điều kiện:
+
+TEMP_MIN ≤ T ≤ TEMP_MAX
+
+H > HUMIDITY_MAX
+
+Môi trường:
+
+Mưa lớn, nhà kín, nước đọng, ít thông gió.
+
+Ảnh hưởng:
+
+Nấm mốc, mùi ẩm mốc, vi khuẩn tăng → ảnh hưởng đường hô hấp của yến, tổ dễ mốc.
+
+Thiết bị:
+
+Quạt: ON (thổi hút, thông gió để giảm ẩm).
+
+Phun sương: OFF (dứt khoát).
+
+Sưởi: Có thể ON nhẹ nếu muốn vừa tăng nhiệt nhẹ, vừa giảm độ ẩm tương đối (tùy thực tế).
+
+Ưu tiên: giảm ẩm bằng quạt; sưởi chỉ dùng khi cần.
+
+6. Nhiệt độ CAO, độ ẩm THẤP (nóng & khô)
+
+Điều kiện:
+
+T > TEMP_MAX
+
+H < HUMIDITY_MIN
+
+Môi trường:
+
+Mùa nắng gắt, gió khô, mái nóng, không che chắn tốt.
+
+Ảnh hưởng:
+
+Đây là case xấu: nóng + khô → yến rất khó chịu, hay bỏ nhà, tổ khô, trứng dễ hỏng.
+
+Thiết bị:
+
+Quạt: ON mức vừa (hạn chế thổi quá mạnh nếu làm khô thêm, tùy thiết kế nhà).
+
+Phun sương: ON (phun ngắt quãng, phối hợp với quạt để phân tán hơi nước đều).
+
+Sưởi: OFF.
+
+Gợi ý logic:
+
+Ưu tiên tăng ẩm bằng phun sương, quạt dùng để tản nhiệt và phân bố ẩm.
+
+Có thể làm rule kiểu:
+
+Nếu T vừa cao (31–33): ưu tiên phun sương + quạt nhẹ.
+
+Nếu T rất cao (>33): quạt mạnh hơn, phun sương nhiều hơn nhưng vẫn canh HUMIDITY_MAX.
+
+7. Nhiệt độ CAO, độ ẩm CAO (nóng & ướt)
+
+Điều kiện:
+
+T > TEMP_MAX
+
+H > HUMIDITY_MAX
+
+Môi trường:
+
+Mùa mưa nóng, nhà bí, ít lỗ thoáng, nước đọng.
+
+Ảnh hưởng:
+
+Không khí oi bức, bí, yến khó thở, dễ bệnh. Tổ dễ mốc vì ẩm + nóng.
+
+Thiết bị:
+
+Quạt: ON mạnh (ưu tiên hút khí nóng, đưa khí mới vào).
+
+Phun sương: OFF (tuyệt đối không phun thêm).
+
+Sưởi: OFF (sưởi nữa là toang luôn 😅).
+
+Mục tiêu: hút bớt ẩm, tản nhiệt, làm không khí “dễ chịu” lại.
+
+8. Nhiệt độ THẤP, độ ẩm THẤP (lạnh & khô)
+
+Điều kiện:
+
+T < TEMP_MIN
+
+H < HUMIDITY_MIN
+
+Môi trường:
+
+Đêm lạnh + gió hanh, hoặc khu vực ít nước, nhà thông gió nhiều quá.
+
+Ảnh hưởng:
+
+Yến lạnh + khô, dễ bệnh, tổ dễ khô, chim non yếu.
+
+Thiết bị:
+
+Sưởi: ON để nâng T lên vùng 27–28 °C.
+
+Phun sương: ON nhẹ/ngắt quãng để tăng ẩm.
+
+Quạt: OFF hoặc rất nhẹ.
+
+Mục tiêu: vừa tăng nhiệt vừa tăng ẩm nhưng ưu tiên nhiệt độ trước cho chim đỡ lạnh.
+
+9. Nhiệt độ THẤP, độ ẩm CAO (lạnh & ướt)
+
+Điều kiện:
+
+T < TEMP_MIN
+
+H > HUMIDITY_MAX
+
+Môi trường:
+
+Trời mưa, lạnh, nhà ít thoát ẩm, nước đọng nhiều (tường, trần, sàn ẩm).
+
+Ảnh hưởng:
+
+Không khí lạnh + ẩm → rất dễ nấm mốc, bệnh hô hấp cho yến, chim con càng nguy hiểm.
+
+Thiết bị:
+
+Sưởi: ON (tăng T lên).
+
+Quạt: ON mức nhẹ-vừa (để hút bớt ẩm nhưng không thổi gió lạnh vào chim).
+
+Phun sương: OFF.
+
+Sưởi giúp tăng nhiệt, đồng thời khi nhiệt tăng, nếu quạt chạy sẽ giúp giảm ẩm tương đối.
